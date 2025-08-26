@@ -25,6 +25,8 @@ pip install peft==0.17.0
 
 # Inference
 
+Using ["anything-v5"](https://huggingface.co/stablediffusionapi/anything-v5) as example. One can choose any interested pre-train model found on [hugginface](https://huggingface.co/) supported by diffusers.
+
 ```python
 import torch
 from diffusers import StableDiffusionPipeline
