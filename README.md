@@ -40,7 +40,7 @@ pipe = pipe.to("cuda")
 prompt = "1girl"
 negative_prompt = ""
 
-# 3. 生成圖像
+# using pipeline
 image = pipe(
     prompt=prompt,
     negative_prompt=negative_prompt,
@@ -50,7 +50,7 @@ image = pipe(
     requires_safety_checker=False
 ).images[0]
 
-# 4. 儲存圖像
+# save result
 image.save("result.png")
 print("result saved!")
 ```
