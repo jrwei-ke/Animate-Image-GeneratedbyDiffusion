@@ -6,8 +6,8 @@ model on ["anything-v5"](https://huggingface.co/stablediffusionapi/anything-v5) 
 ["sdxl"](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0).
 
 # Environment
-'''bash
+```bash
 conda create --name AIGD python=3.10
-'''
+```
 
 # Install
