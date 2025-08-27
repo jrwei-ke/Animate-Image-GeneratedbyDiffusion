@@ -56,3 +56,20 @@ image = pipe(
 image.save("result.png")
 print("result saved!")
 ```
+
+# Finetune
+
+Using Lora:  
+
+Build one's own dataset first.  
+```bash
+cd /diffusers/examples/text_to_image
+mkdir datasets
+cd datasets
+touch metadata.jsonl
+```
+Put the images in this created "datasets" folder and edit metadata.jsonl like:
+```json
+{"file_name": "image1.jpeg", "text": "1girl, animate girl."}
+{"file_name": "image2.jpeg", "text": "1girl, animate girl."}
+```
