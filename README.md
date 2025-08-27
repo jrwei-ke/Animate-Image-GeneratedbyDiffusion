@@ -1,6 +1,7 @@
 # Animate-Image-GeneratedbyDiffusion
 
 This repo is based on ["Stable Diffusion"](https://arxiv.org/abs/2112.10752), 
+["LoRA"](https://arxiv.org/abs/2106.09685), 
 code on ["diffusers"](https://github.com/huggingface/diffusers), 
 model on ["anything-v5"](https://huggingface.co/stablediffusionapi/anything-v5) and 
 ["sdxl"](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0).
@@ -73,3 +74,6 @@ Put the images in this created "datasets" folder and edit metadata.jsonl like:
 {"file_name": "image1.jpeg", "text": "1girl, animate girl."}
 {"file_name": "image2.jpeg", "text": "1girl, animate girl."}
 ```
+file_names should be the same as one's images, and text, the prompts descrbing the correponding image, should be well prompt!!!  
+  
+You can 
