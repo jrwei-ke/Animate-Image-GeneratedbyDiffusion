@@ -76,4 +76,29 @@ Put the images in this created "datasets" folder and edit metadata.jsonl like:
 ```
 file_names should be the same as one's images, and text, the prompts descrbing the correponding image, should be well prompt!!!  
   
-You can 
+You can prompt your training images by yourself. If you have lots experence on prompting, you will get a high quality datasets.  
+
+On the other hand, one can use VLLM to captioning images and producing prompts which is an efficient way but maybe unstable.  
+
+Here is an example to ask an image to Gemini and gets the prompts:
+```
+I want to build a list of prompts describing this image for LoRA training of stable diffusion. please look at this image and combine the acknowlege of prompt engineering to give me the best prompts of this image.
+```
+You can copy and paste the provided prompts to the position of "text" directly; however, a liitle bit modified is recommended.  
+
+After dataset done, be sure in the virtual environment and install the dependencies.
+```bash
+cd ..
+```
+or be sure in the correct folder.
+```bash
+cd /diffusers/examples/text_to_image
+```
+According to the coreesponding base model.
+```bash
+pip install -r requirements.txt
+pip install -r requirements_flax.txt
+pip install -r requirements_sdxl.txt
+```
+
+
