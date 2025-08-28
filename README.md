@@ -32,11 +32,9 @@ Using ["anything-v5"](https://huggingface.co/stablediffusionapi/anything-v5) as 
 import torch
 from diffusers import StableDiffusionPipeline
 
-# loda model
+# loda model and move to cuda  
 model_id = "stablediffusionapi/anything-v5"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-
-# move to cuda
 pipe = pipe.to("cuda")
 
 # prompt
@@ -145,3 +143,14 @@ accelerate train_text_to_image_lora.py \
   --output_dir="sd15-lora"
 ```
 
+After training, modify the trainging script by adding LoRA loading part:
+```python
+model_path = "sd15-lora/checkpoint-100"
+pipe = pipe.to("cuda")
+pipe.load_lora_weights(model_path)
+```
+and then:
+```bash
+python inference.py
+```
+One's own finetuned AIGD generates one's first AIGC!!!
