@@ -114,9 +114,34 @@ lr_scheduler -> learning rate modified in the training or not
 lr_warmup_steps -> learning rate starts from a very small number or not  
 output_dir -> where the LoRA weights saved  
 ```bash
-train_text_to_image_lora.py   --pretrained_model_name_or_path="stablediffusionapi/anything-v5"   --train_data_dir="datasets" --caption_column="text"   --resolution=512 --random_flip   --train_batch_size=1 --num_train_epochs=10 --checkpointing_steps=10   --learning_rate=1e-04 --lr_scheduler="constant" --lr_warmup_steps=0   --output_dir="sd15-lora
+python train_text_to_image_lora.py \
+  --pretrained_model_name_or_path="stablediffusionapi/anything-v5" \
+  --train_data_dir="datasets" \
+  --caption_column="text" \
+  --resolution=512 \
+  --random_flip \
+  --train_batch_size=1 \
+  --num_train_epochs=10 \
+  --checkpointing_steps=10 \
+  --learning_rate=1e-04 \
+  --lr_scheduler="constant" \
+  --lr_warmup_steps=0 \
+  --output_dir="sd15-lora"
 ```
+or one can use accelerate to speed up.
 ```bash
-accelerate launch train_text_to_image_lora.py   --pretrained_model_name_or_path="stablediffusionapi/anything-v5"   --train_data_dir="datasets" --caption_column="text"   --resolution=512 --random_flip   --train_batch_size=1 --num_train_epochs=100 --checkpointing_steps=10   --learning_rate=1e-04 --lr_scheduler="constant" --lr_warmup_steps=0   --output_dir="sd15-lora" 
+accelerate train_text_to_image_lora.py \
+  --pretrained_model_name_or_path="stablediffusionapi/anything-v5" \
+  --train_data_dir="datasets" \
+  --caption_column="text" \
+  --resolution=512 \
+  --random_flip \
+  --train_batch_size=1 \
+  --num_train_epochs=10 \
+  --checkpointing_steps=10 \
+  --learning_rate=1e-04 \
+  --lr_scheduler="constant" \
+  --lr_warmup_steps=0 \
+  --output_dir="sd15-lora"
 ```
 
