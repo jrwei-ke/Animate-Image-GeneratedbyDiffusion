@@ -94,11 +94,29 @@ or be sure in the correct folder.
 ```bash
 cd /diffusers/examples/text_to_image
 ```
-According to the coreesponding base model.
+According to the base model, install the dependencies coreespond to the requirements.
 ```bash
 pip install -r requirements.txt
 pip install -r requirements_flax.txt
 pip install -r requirements_sdxl.txt
 ```
-
+Start Training.  
+The following hyperparameters mean:  
+pretrained_model_name_or_path -> base model  
+train_data_dir -> name of dataset folder  
+caption_column -> prompts  
+resolution -> image input size (512 x 512)  
+train_batch_size -> every grad update based on the number of images  
+num_train_epochs -> how many trains based on the whole dataset  
+checkpointing_steps -> every checkpoint saves the weights  
+learning_rate -> the length every step taken by the optimizer to update the weights  
+lr_scheduler -> learning rate modified in the training or not  
+lr_warmup_steps -> learning rate starts from a very small number or not  
+output_dir -> where the LoRA weights saved  
+```bash
+train_text_to_image_lora.py   --pretrained_model_name_or_path="stablediffusionapi/anything-v5"   --train_data_dir="datasets" --caption_column="text"   --resolution=512 --random_flip   --train_batch_size=1 --num_train_epochs=10 --checkpointing_steps=10   --learning_rate=1e-04 --lr_scheduler="constant" --lr_warmup_steps=0   --output_dir="sd15-lora
+```
+```bash
+accelerate launch train_text_to_image_lora.py   --pretrained_model_name_or_path="stablediffusionapi/anything-v5"   --train_data_dir="datasets" --caption_column="text"   --resolution=512 --random_flip   --train_batch_size=1 --num_train_epochs=100 --checkpointing_steps=10   --learning_rate=1e-04 --lr_scheduler="constant" --lr_warmup_steps=0   --output_dir="sd15-lora" 
+```
 
